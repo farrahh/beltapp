@@ -1,0 +1,20 @@
+{% load staticfiles %}
+<!Doctype html>
+<html>
+    <head>
+       <title>Users</title>
+    </head>
+    <body>
+      <div id="wrapper">
+        <h3><a href="/quotes">Dashboard<a/> | <a href="/users/{{ request.session.id }}">Account<a/> | <a href= "/logout">Logout</a></h3>
+        <h1>{{ quotePosterUserName }} has {{ quoteCount }} Posts</h1>
+        {% for quote in allQuotes %}
+        <div class="quotes">
+          <p>{{ quote.quote }}</p>
+          <em>- {{ quote.author }}</em>
+          <p style=color:red; >Posted on: {{ quote.created_at }}</p>
+        </div>
+        {%  endfor %}
+      </div>
+    </body>
+</html>
